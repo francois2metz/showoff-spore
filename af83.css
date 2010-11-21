@@ -1,0 +1,13 @@
+/* General */
+#footer { display: none; }
+#preso { width: 100% !important; height: 1200px !important; overflow: hidden; }
+body { font-family: "Droid Sans", sans; }
+.slide { width: 100%; height: 100%; }
+
+/* Content */
+h1 { width: 60%; background-color: #1a171b; color: white; position: relative; margin: 100px auto; }
+pre { margin: 32px 5%; background-color: #ebebeb !important; padding: 10px 0 10px 100px;  }
+
+
+code { font-family: "Droid Sans Mono", monospace; }
+
