@@ -7,7 +7,7 @@ body { font-family: "Droid Sans", sans; }
 /* Content */
 h1 { width: 60%; background-color: #1a171b; color: white; position: relative; margin: 100px auto; }
 pre { margin: 32px 5%; background-color: #ebebeb !important; padding: 10px 0 10px 100px;  }
-
+p { margin: 32px 5%; }
 
 code { font-family: "Droid Sans Mono", monospace; }
 

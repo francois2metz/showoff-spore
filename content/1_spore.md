@@ -59,10 +59,10 @@
     @@@ Javascript
     var client = spore.createClient(
         __dirname +'/statusnet.json');
-        
-    client.public_timeline({format: 'json'}, 
+
+    client.public_timeline({format: 'json'},
                            function(err, res) {
-                           
+
         console.log(err, res);
     });
 
@@ -77,7 +77,7 @@
 # Middlewares
 
 * Rajouter les informations d'authentification
-* Cacher les réponses
+* Mettre en cache les réponses
 * Déserialiser la réponse
 * Réparer l'API ?
 
@@ -85,15 +85,67 @@
 # Exemple
 
     @@@ Javascript
-    var oauth1 = require('spore/middlewares').oauth1;
-    var oauth = new OAuth(null, null, 'Key1', 
-                          'Key2', 1.0, null, "HMAC-SHA1");
-                          
-    client.enable(oauth1('access_token', 'access_token_secret'));
-    
+    var oauth2 = require('spore/middlewares').oauth2;
+
+    client.enable(oauth2('access_token'));
+
     client.home_timeline({format: 'json'}, function(err, res) {
         console.log(err, res);
     });
+
+!SLIDE
+# enable/enable_if/disable
+
+Ajout de middlewares au démarrage
+
+    @@@ Javascript
+    spore.createClient(middleware, __dirname+'twitter.json');
+
+Plus tard
+
+    @@@ Javascript
+    client.enable(middleware);
+
+Seulement dans certains cas
+
+    @@@ Javascript
+    client.enable_if(middleware);
+
+!SLIDE
+# Implémentation (qui modifie les paramètres)
+
+    @@@ Javascript
+    function myMiddleware() {
+        return function(method, request, next) {
+            request.params["format"] = "xml";
+            next();
+        }
+    }
+
+!SLIDE
+# Implémentation (qui fait une chose asynchrone)
+
+    @@@ Javascript
+    function myMiddleware() {
+        return function(method, request, next) {
+            fs.stat(path, function(err, stats) {
+                next();
+            }) ;
+        }
+    }
+
+!SLIDE
+# Appel a la réponse
+
+    @@@ Javascript
+    function myMiddleware() {
+        return function(method, request, next) {
+            next(function(response, next) {
+                response.body = 'plop';
+                next();
+            });
+        }
+    }
 
 !SLIDE bullets
 # Liens
