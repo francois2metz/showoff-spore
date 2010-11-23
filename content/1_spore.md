@@ -73,6 +73,10 @@
 * Avant que vous fassiez la requête
 * A la réponse de l'API
 
+!SLIDE center
+
+![FAIL](spore_client.png)
+
 !SLIDE bullets
 # Middlewares
 
