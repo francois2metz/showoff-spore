@@ -7,6 +7,7 @@
 !SLIDE bullets
 # Questions
 
-Slides on [github.com/francois2metz/showff-spore](http://github.com/francois2metz/showff-spore)
+* Slides on [github.com/francois2metz/showff-spore](http://github.com/francois2metz/showff-spore)
+* [node-spore.heroku.com/](http://node-spore.heroku.com/)
 
 ## af83

@@ -91,7 +91,7 @@
 * Désérialiser la réponse
 * Réparer l'API ?
 
-!SLIDE 
+!SLIDE
 
 ## [github.com/senchalabs/connect/](https://github.com/senchalabs/connect/)
 
@@ -170,6 +170,28 @@ Seulement dans certains cas
             });
         }
     }
+
+!SLIDE bullets
+
+# Et la partie serveur ?
+
+* un prototype existe qui utilise [expressjs](http://expressjs.com/)
+
+!SLIDE small
+
+# Exemple
+
+    @@@ Javascript
+    var app   = require('express').createServer();
+    var spore = require('spore');
+    spore.createServer(app, __dirname +'/twitter.json', {
+
+        public_timeline: function(req, res) {
+            res.send('Hello word !');
+        }
+
+    });
+    app.listen(3000);
 
 !SLIDE bullets
 # Liens
