@@ -4,9 +4,15 @@
 * lire la doc
 * utiliser une implémentation existante dans votre langage préféré
 
-!SLIDE center
+!SLIDE bullets
 
-![FAIL](fail.jpg)
+# Don't repeat yourself
+
+!SLIDE bullets
+
+# Don't repeat yourself
+
+# Don't repeat yourself
 
 !SLIDE
 # Comment décrire une API Rest (et faciliter l'écriture de client) ?
@@ -17,7 +23,7 @@
 * Description de l'API
 * Implémentation du client
 
-!SLIDE bullets
+!SLIDE bullets small
 # Description de l'API
 
     @@@ Javascript
@@ -50,8 +56,8 @@
 !SLIDE bullets
 # Implémentation des clients
 
-* Tous les mêmes !
-* Pas besoin de mettre à jour les clients
+* Implémentation similaire dans différents langages
+* Pas besoin de mettre à jour les clients si l'API change
 
 !SLIDE
 # Code
@@ -69,7 +75,7 @@
 !SLIDE bullets
 # Middlewares
 
-* Ils sont partout !
+* Se charge de tout le travail spécifique
 * Avant que vous fassiez la requête
 * A la réponse de l'API
 
@@ -82,10 +88,14 @@
 
 * Rajouter les informations d'authentification
 * Mettre en cache les réponses
-* Déserialiser la réponse
+* Désérialiser la réponse
 * Réparer l'API ?
 
-!SLIDE
+!SLIDE 
+
+## [github.com/senchalabs/connect/](https://github.com/senchalabs/connect/)
+
+!SLIDE small
 # Exemple
 
     @@@ Javascript
@@ -97,7 +107,7 @@
         console.log(err, res);
     });
 
-!SLIDE
+!SLIDE small
 # enable/enable_if/disable
 
 Ajout de middlewares au démarrage
@@ -113,32 +123,42 @@ Plus tard
 Seulement dans certains cas
 
     @@@ Javascript
-    client.enable_if(middleware);
+    client.enable_if(function(method, request) {
+       if (method.uri == '/user') {
+           return true;
+       }
+    }, middleware);
 
-!SLIDE
+!SLIDE small
 # Implémentation (qui modifie les paramètres)
 
     @@@ Javascript
     function myMiddleware() {
+
         return function(method, request, next) {
             request.params["format"] = "xml";
             next();
         }
+
     }
 
-!SLIDE
+!SLIDE small
 # Implémentation (qui fait une chose asynchrone)
 
     @@@ Javascript
     function myMiddleware() {
+
         return function(method, request, next) {
+
             fs.stat(path, function(err, stats) {
+
                 next();
             }) ;
         }
+
     }
 
-!SLIDE
+!SLIDE small
 # Appel a la réponse
 
     @@@ Javascript
