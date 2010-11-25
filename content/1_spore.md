@@ -194,5 +194,5 @@ Seulement dans certains cas
 !SLIDE bullets
 # Liens
 
-* https://github.com/SPORE/specifications/
-* https://github.com/francois2metz/node-spore
+* [github.com/SPORE/specifications](https://github.com/SPORE/specifications)
+* [github.com/francois2metz/node-spore](https://github.com/francois2metz/node-spore)
