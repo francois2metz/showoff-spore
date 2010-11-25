@@ -27,7 +27,6 @@
 # Description de l'API
 
     @@@ Javascript
-    {
       "base_url" : "http://api.twitter.com/1",
       "version" : "0.1",
       "methods" : {
@@ -41,8 +40,7 @@
           ],
           "path" : "/statuses/public_timeline.:format",
           "method" : "GET"
-       }
-    }
+      }
 
 !SLIDE bullets
 # Pour chaque méthode, on décrit
@@ -159,7 +157,7 @@ Seulement dans certains cas
     }
 
 !SLIDE small
-# Appel a la réponse
+# Appel à la réponse
 
     @@@ Javascript
     function myMiddleware() {
@@ -173,7 +171,7 @@ Seulement dans certains cas
 
 !SLIDE bullets
 
-# Et la partie serveur ?
+# Et la partie serveur&nbsp;&nbsp;?
 
 * un prototype existe qui utilise [expressjs](http://expressjs.com/)
 
